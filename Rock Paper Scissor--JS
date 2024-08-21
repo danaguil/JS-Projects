@@ -1,0 +1,69 @@
+// start of project: ROCK, PAPER, OR SCISSORS
+
+// Function to get the user's choice and validate it
+const getUserChoice = (userInput) => {
+  // turing userInput to lower case
+  userInput = userInput.toLowerCase();
+  // We also want to check to make sure the user typed a valid choice
+  const validChoice = ["rock", "paper", "scissors"];
+  if (validChoice.includes(userInput)) {
+    // checks if input is in the array
+    return userInput; // returns input
+  } else {
+    // if inputted a wrong choice
+    return "Invalid Choice!!"; // outputs ERROR message
+  }
+};
+/* TESTING: Works!
+console.log(getUserChoice('Paper'));
+console.log(getUserChoice('what'));
+*/
+
+// Function to get the computer's choice randomly
+const getComputerChoice = () => {
+  // We need to get rand num between 0 and 2
+  // rand generates num between 0 and 1, mult by 3, now between 0 and 3(exclusive), floor round num down to nearest whole value
+  const num = Math.floor(Math.random() * 3);
+  switch (num) {
+    case 0:
+      return "rock";
+    case 1:
+      return "paper";
+    case 2:
+      return "scissors";
+  }
+};
+/*  TESTING: works!!
+console.log(getComputerChoice());
+*/
+
+// Function to determine the winner based on user and computer choices
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) return "Tie!!";
+  else if (userChoice === "rock") {
+    if (computerChoice === "paper") return "Computer Won!!";
+    else return "User Won!!";
+  } else if (userChoice === "paper") {
+    if (computerChoice === "scissors") return "Computer Won!!";
+    else return "User Won!!";
+  } else if (userChoice === "scissors") {
+    if (computerChoice === "rock") return "Computer Won!!";
+    else return "User Won!!";
+  }
+};
+
+/*  TESTING: works!!
+console.log(determineWinner(getUserChoice('Paper'),getComputerChoice()));
+*/
+// Function to play the game and log the results
+const playGame = () => {
+  let userChoice = getUserChoice("rock");
+  let computerChoice = getComputerChoice();
+
+  console.log("You threw: " + userChoice);
+  console.log("The computer threw: " + computerChoice);
+
+  console.log(determineWinner(userChoice, computerChoice));
+};
+
+playGame();
