@@ -1,0 +1,31 @@
+<!--
+Asynchronous programming with API data and web-based functions like fetch().
+Arranging content via CSS Flexbox.
+Manipulating the DOM (Document Object Model) with document.getElementById(). 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>My Weather App</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <main>
+    <section id="weather-wrapper">
+      <h1>Weather App</h1>
+      <div id="weather-search">
+        <input id="search" type="text" placeholder="Search By City"/>
+        <input class="button" id="submit" type="submit" onclick="fetchWeather()" value="search"/>
+      </div>
+      <div id="weather-data" style="display:none;"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
